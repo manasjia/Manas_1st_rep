@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="button-group">
+    <a href="{% url 'show_products' %}" class="btn btn-primary btn-md" role="button"> Stocks</a>
+    <a href="#" class="btn btn-warning btn-sm" role="button">+</a>
+    <a href="#" class="btn btn-primary btn-md" role="button">Purchase</a>
+    <a href="#" class="btn btn-warning btn-sm" role="button">+</a>
+   </div>
+<br>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Sl No</th>
+        <th>product id</th>
+        <th>Product Code</th>
+        <th>productName</th>
+        <th>Quantity</th>
+        <th>Price </th>
+    </tr>
+
+    </thead>
+      <tbody>
+    {% for item in items %}
+  <tr>
+      <td>{{item.pk}}</td>
+      <td>{{item.product_id}}</td>
+      <td>{{item.product_type_code}}</td>
+      <td>{{item.product_name}}</td>
+      <td>{{item.product_quantity}}</td>
+      <td>{{item.product_unit_price}}</td>
+  </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+{% endblock %}
